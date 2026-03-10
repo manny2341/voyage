@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+mlflow.db
+mlflow_artifacts/
+notebooks/
+data/raw/
+.git/
+.gitignore
+Makefile
+README.md
+tests/

@@ -1,0 +1,55 @@
+networks:
+  voyage_net:
+    driver: bridge
+
+volumes:
+  mlflow_data:
+
+services:
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow_server/Dockerfile
+    container_name: voyage-mlflow
+    ports:
+      - "5050:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    networks:
+      - voyage_net
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: voyage-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - ENCODERS_PATH=/app/data/processed/encoders.json
+      - ACTIVE_MODEL_PATH=/app/data/processed/active_model.json
+    volumes:
+      - ./data/processed:/app/data/processed:ro
+    networks:
+      - voyage_net
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+    container_name: voyage-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    networks:
+      - voyage_net
+    depends_on:
+      - api
+    restart: unless-stopped
