@@ -4,6 +4,7 @@ __pycache__/
 .env
 mlflow.db
 mlflow_artifacts/
-data/processed/
+data/processed/*.csv
+data/processed/mlflow*
 *.egg-info/
 .DS_Store

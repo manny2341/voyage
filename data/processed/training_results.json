@@ -1,0 +1,52 @@
+{
+  "linear_regression": {
+    "run_id": "cb920fe2cac048789a170bbe8191afa6",
+    "metrics": {
+      "mae": 9.0997,
+      "rmse": 12.1391,
+      "r2": 0.9637,
+      "within_10gbp_pct": 64.75,
+      "within_20gbp_pct": 90.75
+    }
+  },
+  "ridge_regression": {
+    "run_id": "fcef9068ad3649e98aaa6c3b8933e159",
+    "metrics": {
+      "mae": 9.0958,
+      "rmse": 12.131,
+      "r2": 0.9638,
+      "within_10gbp_pct": 64.75,
+      "within_20gbp_pct": 90.7
+    }
+  },
+  "random_forest": {
+    "run_id": "70db38d515224bc79c246be6186f8d57",
+    "metrics": {
+      "mae": 4.9123,
+      "rmse": 6.317,
+      "r2": 0.9902,
+      "within_10gbp_pct": 89.2,
+      "within_20gbp_pct": 99.65
+    }
+  },
+  "gradient_boosting": {
+    "run_id": "5e7052f4723c4e10afc741eb7593d34e",
+    "metrics": {
+      "mae": 4.3317,
+      "rmse": 5.4499,
+      "r2": 0.9927,
+      "within_10gbp_pct": 93.2,
+      "within_20gbp_pct": 100.0
+    }
+  },
+  "xgboost": {
+    "run_id": "da69e92b99c24394adee3b51f2d49f68",
+    "metrics": {
+      "mae": 4.495,
+      "rmse": 5.6854,
+      "r2": 0.992,
+      "within_10gbp_pct": 91.95,
+      "within_20gbp_pct": 99.9
+    }
+  }
+}
