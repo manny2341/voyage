@@ -48,3 +48,11 @@ results/
 charts/
 figures/
 
+# ── Streamlit Cloud demo assets — production model only ──────────────────────
+!data/
+!data/processed/
+!data/processed/encoders.json
+!data/processed/active_model.json
+!data/processed/models/
+!data/processed/models/gradient_boosting.pkl
+

@@ -41,12 +41,15 @@ def load_assets():
     with open(ACTIVE_MODEL_PATH) as f:
         active = json.load(f)
 
+    production_model = active.get("production_model")
     models = {}
     for pkl_file in sorted(MODELS_DIR.glob("*.pkl")):
+        if pkl_file.stem != production_model:
+            continue
         with open(pkl_file, "rb") as f:
             models[pkl_file.stem] = pickle.load(f)
 
-    return models, encoders, active.get("production_model")
+    return models, encoders, production_model
 
 
 models, encoders, production_model = load_assets()
